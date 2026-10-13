@@ -16,4 +16,9 @@ public class companyService {
     public List<Company> findAllCompany() {
         return companyRepository.findAllCompany();
     }
+
+    // IDの企業の取得
+    public Company findCompanyById(int companyId) {
+        return companyRepository.findCompanyById(companyId);
+    }
 }
