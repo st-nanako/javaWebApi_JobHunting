@@ -2,6 +2,7 @@ package com.example.jobhunting.controller;
 
 import com.example.jobhunting.dto.Company;
 import com.example.jobhunting.service.companyService;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -49,6 +50,13 @@ public class companyController {
     public ResponseEntity<Company> updateCompany(@RequestBody Company company, @PathVariable long id) {
         Company companyUpdate = companyService.updateCompany(company,id);
         return ResponseEntity.ok(companyUpdate);
+    }
+
+    // 企業の削除
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Company> deleteCompany(@PathVariable long id) {
+        companyService.deleteCompany(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
