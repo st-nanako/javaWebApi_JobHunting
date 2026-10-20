@@ -18,12 +18,17 @@ public class companyRepository {
     }
 
     // IDの企業の取得
-    public Company findCompanyById(int companyId) {
+    public Company findCompanyById(long companyId) {
         return companyMapper.findCompanyById(companyId);
     }
 
     // 企業の新規登録
     public void insertCompany(Company company) {
         companyMapper.insertCompany(company);
+    }
+
+    // 企業の編集
+    public void updateCompany(Company company) {
+        companyMapper.updateCompany(company);
     }
 }

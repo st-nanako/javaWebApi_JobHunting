@@ -26,7 +26,7 @@ public class companyController {
 
     // IDの企業の取得
     @GetMapping("/{id}")
-    public ResponseEntity<Company> findCompanyById(@PathVariable int id) {
+    public ResponseEntity<Company> findCompanyById(@PathVariable long id) {
         Company company = companyService.findCompanyById(id);
         return ResponseEntity.ok(company);
     }
@@ -42,6 +42,13 @@ public class companyController {
                 .buildAndExpand(createCompany.getCompanyId()).toUri();
 
         return ResponseEntity.created(location).body(createCompany);
+    }
+
+    // 企業の編集
+    @PutMapping("/{id}")
+    public ResponseEntity<Company> updateCompany(@RequestBody Company company, @PathVariable long id) {
+        Company companyUpdate = companyService.updateCompany(company,id);
+        return ResponseEntity.ok(companyUpdate);
     }
 
 }

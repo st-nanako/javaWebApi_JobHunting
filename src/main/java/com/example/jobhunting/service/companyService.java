@@ -18,7 +18,7 @@ public class companyService {
     }
 
     // IDの企業の取得
-    public Company findCompanyById(int companyId) {
+    public Company findCompanyById(long companyId) {
         return companyRepository.findCompanyById(companyId);
     }
 
@@ -28,11 +28,24 @@ public class companyService {
         company.setName(companyForm.getName());
         company.setBusinessId(companyForm.getBusinessId());
         company.setPositionId(companyForm.getPositionId());
-        company.setCompanyId(companyForm.getCompanyId());
         company.setCompanyUrl(companyForm.getCompanyUrl());
         company.setMemo(companyForm.getMemo());
 
         companyRepository.insertCompany(company);
+        return company;
+    }
+
+    // 企業の編集
+    public Company updateCompany(Company companyForm , long companyId) {
+        Company company = new Company();
+        company.setName(companyForm.getName());
+        company.setBusinessId(companyForm.getBusinessId());
+        company.setPositionId(companyForm.getPositionId());
+        company.setCompanyId(companyId);
+        company.setCompanyUrl(companyForm.getCompanyUrl());
+        company.setMemo(companyForm.getMemo());
+
+        companyRepository.updateCompany(company);
         return company;
     }
 }
