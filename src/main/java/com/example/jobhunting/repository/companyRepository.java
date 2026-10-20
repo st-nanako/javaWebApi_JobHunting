@@ -31,4 +31,9 @@ public class companyRepository {
     public void updateCompany(Company company) {
         companyMapper.updateCompany(company);
     }
+
+    // 企業の削除
+    public boolean deleteCompany(long companyId) {
+        return  companyMapper.deleteCompany(companyId) == 1;
+    }
 }

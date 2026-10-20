@@ -1,10 +1,7 @@
 package com.example.jobhunting.mapper;
 
 import com.example.jobhunting.dto.Company;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -27,4 +24,8 @@ public interface companyMapper {
     @Update("UPDATE companies SET name = #{name},business_id = #{businessId},position_id = #{positionId},company_url = #{companyUrl},memo = #{memo} " +
             "WHERE company_id = #{companyId}")
     void updateCompany(Company company);
+
+    // 企業の削除
+    @Delete("DELETE FROM companies WHERE company_id = #{companyId}")
+    long deleteCompany(long companyId);
 }

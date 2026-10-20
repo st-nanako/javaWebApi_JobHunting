@@ -48,4 +48,10 @@ public class companyService {
         companyRepository.updateCompany(company);
         return company;
     }
+
+    // 企業の削除
+    public boolean deleteCompany(long companyId) {
+        companyRepository.deleteCompany(companyId);
+        return true;
+    }
 }
