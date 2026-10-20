@@ -21,4 +21,18 @@ public class companyService {
     public Company findCompanyById(int companyId) {
         return companyRepository.findCompanyById(companyId);
     }
+
+    // 企業の新規登録
+    public Company insertCompany(Company companyForm) {
+        Company company = new Company();
+        company.setName(companyForm.getName());
+        company.setBusinessId(companyForm.getBusinessId());
+        company.setPositionId(companyForm.getPositionId());
+        company.setCompanyId(companyForm.getCompanyId());
+        company.setCompanyUrl(companyForm.getCompanyUrl());
+        company.setMemo(companyForm.getMemo());
+
+        companyRepository.insertCompany(company);
+        return company;
+    }
 }

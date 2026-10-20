@@ -21,4 +21,9 @@ public class companyRepository {
     public Company findCompanyById(int companyId) {
         return companyMapper.findCompanyById(companyId);
     }
+
+    // 企業の新規登録
+    public void insertCompany(Company company) {
+        companyMapper.insertCompany(company);
+    }
 }
