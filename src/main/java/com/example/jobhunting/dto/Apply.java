@@ -8,7 +8,7 @@ public class Apply {
     private long applicationId;
     private String name;
     private long companyId;
-    private LocalDate application_date ;
+    private LocalDate applicationDate ;
     private long typeId;
     private long statusId;
     private LocalDate scheduleStartDate;

@@ -33,10 +33,9 @@ public class companyController {
     }
 
     // 企業の新規登録
-    @PostMapping("/register")
+    @PostMapping
     public ResponseEntity<Company> insertCompany(@RequestBody Company company,
                                                  UriComponentsBuilder uriBuilder) {
-        System.out.println(company);
         Company createCompany = companyService.insertCompany(company);
 
         URI location = uriBuilder.path("/api/companies/{id}")
