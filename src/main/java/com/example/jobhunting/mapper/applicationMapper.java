@@ -17,6 +17,7 @@ public interface applicationMapper {
     // 応募の新規登録
     @Insert("INSERT INTO applications (name,company_id,application_date,type_id,status_id,schedule_start_date,schedule_end_date,memo)" +
             "VALUES (#{name},#{companyId},#{applicationDate},#{typeId},#{statusId},#{scheduleStartDate},#{scheduleEndDate},#{memo})")
+    @Options(useGeneratedKeys = true, keyProperty = "applicationId", keyColumn = "application_id")
     void insertApplication(Apply application);
 
     // 応募の編集
