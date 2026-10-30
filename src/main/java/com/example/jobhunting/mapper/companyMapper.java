@@ -18,6 +18,7 @@ public interface companyMapper {
     // 企業の新規登録
     @Insert("INSERT INTO companies (name,business_id,position_id,company_url,memo) " +
             "VALUES (#{name},#{businessId},#{positionId},#{companyUrl},#{memo})")
+    @Options(useGeneratedKeys = true, keyProperty = "companyId", keyColumn = "company_id")
     void insertCompany(Company company);
 
     // 企業の編集
